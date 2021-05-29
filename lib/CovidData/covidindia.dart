@@ -203,7 +203,7 @@ class _CovidIndiaState extends State<CovidIndia> {
     var statedata = [];
 
     for (var i in data["statewise"]) {
-      statedata.add(i);
+      if (i["state"] != "State Unassigned") statedata.add(i);
     }
 
     Navigator.pushReplacement(
@@ -212,7 +212,7 @@ class _CovidIndiaState extends State<CovidIndia> {
         builder: (context) {
           return Scaffold(
             appBar: AppBar(
-              title: Text("App"),
+              title: Text("India"),
             ),
             body: Padding(
               padding: EdgeInsets.symmetric(horizontal: (20)),
